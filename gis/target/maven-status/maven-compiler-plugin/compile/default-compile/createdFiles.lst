@@ -1,0 +1,13 @@
+es\udc\fic\tfg\gis\daos\UsuarioDaoHibImpl.class
+es\udc\fic\tfg\gis\daos\OrganizacionDAOHibImpl.class
+es\udc\fic\tfg\gis\model\Direccion.class
+es\udc\fic\tfg\gis\App.class
+es\udc\fic\tfg\gis\daos\OrganizacionDAO.class
+es\udc\fic\tfg\gis\services\OrganizacionServiceImpl.class
+es\udc\fic\tfg\gis\services\UsuarioService.class
+es\udc\fic\tfg\gis\daos\UsuarioDAO.class
+es\udc\fic\tfg\gis\model\Usuario.class
+es\udc\fic\tfg\gis\services\UsuarioServiceImpl.class
+es\udc\fic\tfg\gis\services\OrganizacionService.class
+es\udc\fic\tfg\gis\web\app\AppRestController.class
+es\udc\fic\tfg\gis\model\Organizacion.class

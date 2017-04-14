@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+
+<meta http-equiv="Expires" content="0">
+
+<meta http-equiv="Last-Modified" content="0">
+
+<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+
+<meta http-equiv="Pragma" content="no-cache">
+
+
+  
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+    <script src="js/app.js"></script>
+    
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300|UnifrakturCook:700" rel="stylesheet">
+    <style>
+      body {
+        font-family: 'Open Sans', sans-serif;
+		font-family: 'UnifrakturCook', cursive;
+		font-family: 'Open Sans Condensed', sans-serif;		
+		padding-top: 20px;
+	    padding-bottom: 20px;
+		 }
+		 
+	.navbar{
+        background-color: #1f2532;
+        border:#1f2532;
+        font-size: 20px;
+        font-color:#1f2532;
+        margin-top: 20px;
+		}
+	
+	.navbar-header .navbar-brand {
+		color:white;
+		font-size: 25px;
+        letter-spacing: +0px; 
+	}
+
+	.navbar-inverse .navbar-nav  li a{
+ 	    color:white;
+        letter-spacing: +3px; 
+		}
+		
+	.navbar-inverse .navbar-nav li a:hover{
+	    font-size: 22px;
+		}
+		
+	.navbar-inverse .dropdown-menu li a{
+		 letter-spacing: 0px; 
+		 font-size: 18px;
+		 color:grey;		 
+	}
+	.navbar-inverse .dropdown-menu li a:hover{
+		 color:black;
+		 font-size: 18px;
+	}
+	
+	.navbar-inverse .dropdown-toggle{
+		 letter-spacing: 0px; 
+		 font-size: 13px;
+		 color:grey;		 
+	}
+	.navbar-inverse .dropdown-toggle :hover{
+		 color:black;
+		 font-size: 5px;
+	}
+
+	</style>
+	 
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="routerApp">
+
+<!-- NAVIGATION -->
+<div class="container">
+	<nav class="navbar navbar-inverse" >
+	  <div class="container-fluid">
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="#">WeebSiteName</a>
+	    </div>
+	    <ul class="nav navbar-nav">
+	      <li><a ui-sref="mapas">Mapas</a></li>
+	      <li><a ui-sref="datasets">DataSets</a></li>
+	    </ul>
+	     <ul class="nav navbar-nav navbar-right">
+	     <li class="dropdown">
+	        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Adrian Gonzalez Rey
+	        <span class="glyphicon glyphicon-map-marker"></span></a>
+	        <ul class="dropdown-menu">
+	          <li><a ui-sref="verperfil">Ver perfil</a></li>
+	          <li><a ui-sref="administrar">Administrar organizacion</a></li>
+	          <li class="divider"></li>
+	          <li><a ui-sref="cerrarsesion">Cerrar sesion</a></li>
+	        </ul>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+</div>
+<!-- MAIN CONTENT -->
+<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+<div class="container">
+    <div ui-view></div>
+</div>
+
+<div class="text-center">
+    <p>A tutorial by <a href="http://scotch.io" target="_blank">scotch.io</a></p>
+    <p>View the tutorial: <a href="http://scotch.io/tutorials/javascript/angular-routing-using-ui-router" target="_blank">AngularJS Routing using UI-Router</a></p>
+</div>
+
+</body>
+</html>
