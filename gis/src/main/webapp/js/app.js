@@ -25,11 +25,33 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         .state('verperfil', {
         	url: "/verperfil",
             templateUrl: "vistas/verperfil.html",
+            
         })
         
           .state('administrar', {
         	url: "/administrar",
             templateUrl: "vistas/administrar.html",
+        })
+        
+        .state('administrar.verEliminarUsuarios', {
+        	url: "/verEliminarUsuarios",
+            templateUrl: "vistas/verEliminarUsuarios.html",
+          
+        })
+        
+          .state('administrar.anadirUsuarios', {
+        	url: "/anadirUsuarios",
+            templateUrl: "vistas/anadirUsuarios.html",
+           
+        })
+        
+           .state('administrar.configuracionOrganizacion', {
+        	url: "/configuracionOrganizacion",
+            templateUrl: "vistas/configuracionOrganizacion.html",
+            controller: function($scope) {
+                $scope.titulo = 'Administracion general de la organizacion';
+            }
+            
         })
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
