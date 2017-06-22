@@ -56,8 +56,8 @@ public class OrganizacionDAOHibImpl implements OrganizacionDAO {
 
 	@SuppressWarnings("unchecked")
 	public List<Usuario> buscarUsuariosOrganizacion(Organizacion miOrganizacion) {
-		Query q = sessionfactory.getCurrentSession().createQuery("from Usuario where idOrganizacion = :idOrganizacion");
-		  q.setParameter("idOrganizacion",miOrganizacion.getIdOrganizacion());
+		Query q = sessionfactory.getCurrentSession().createQuery("from Usuario where id_organizacion = :id_organizacion");
+		  q.setParameter("id_organizacion",miOrganizacion.getIdOrganizacion());
 		  
 		  return (List<Usuario>) q.list();
 

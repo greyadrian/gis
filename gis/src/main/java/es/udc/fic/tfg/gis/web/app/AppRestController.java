@@ -23,12 +23,16 @@ public class AppRestController {
 	
 	@Autowired
 	UsuarioService usuarioService;
-
+long numero =55;
 	
 	
 	@RequestMapping(value="/user", method = RequestMethod.GET)
-    public @ResponseBody Usuario verUsuario(@RequestParam(value="userId",required=true)Long userId) {
-		return usuarioService.buscarUsuarioPorId(userId);
+    public @ResponseBody Usuario verUsuario() {
+	
+	
+		return 	  usuarioService.buscarUsuarioPorId(numero);
+		
+			
     }
 		
 	

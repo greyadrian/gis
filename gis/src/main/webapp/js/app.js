@@ -36,12 +36,15 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         .state('administrar.verEliminarUsuarios', {
         	url: "/verEliminarUsuarios",
             templateUrl: "vistas/verEliminarUsuarios.html",
+            controller:"administrarController",
+            controllerAs:"administrar"
           
         })
         
           .state('administrar.anadirUsuarios', {
         	url: "/anadirUsuarios",
             templateUrl: "vistas/anadirUsuarios.html",
+           
            
         })
         

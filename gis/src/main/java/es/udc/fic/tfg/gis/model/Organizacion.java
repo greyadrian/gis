@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -98,7 +99,7 @@ public class Organizacion {
 		this.direccion = direccion;
 	}
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="TelefonosOrganizacion", joinColumns=@JoinColumn(name="idOrganizacion"))
 	@Column(name="Telefono", nullable=false)
 	public Set<String> getTelefonos() {
@@ -119,7 +120,8 @@ public class Organizacion {
 		this.email = email;
 	}
 
-	@OneToMany(mappedBy = "organizacion",cascade=CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY)
+	@JoinColumn(name="ID_ORGANIZACION")
 	//@Column(insertable=false, updatable=false)
 	public Set<Usuario> getUsuarios() {
 		return usuarios;

@@ -8,6 +8,7 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -107,7 +108,7 @@ public class Usuario {
 	}
 	
 	
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@CollectionTable(name="TelefonosUsuario", joinColumns=@JoinColumn(name="idUsuario"))
 	@Column(name = "Telefono")
 	public Set<String> getTelefonos() {
@@ -136,8 +137,8 @@ public class Usuario {
 		this.fechaAlta = fechaAlta;
 	}
 
-	@ManyToOne
-	@JoinColumn(name = "idOrganizacion")
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "ID_ORGANIZACION")
 	//@Column(insertable=false, updatable=false)
 	public Organizacion getOrganizacion() {
 		return organizacion;

@@ -48,7 +48,7 @@ public class TestUsuario {
 	@After
 	public void tearDown() throws Exception {
 		log.info ("Eliminando datos para caso de proba: " + this.getClass().getName());
-		testUtils.eliminaSetDatosProba();  
+//		testUtils.eliminaSetDatosProba();  
 		log.info ("Datos eliminados con éxito");
 	}
 	
@@ -79,7 +79,7 @@ public class TestUsuario {
 		
 		//Creamos Usuarios
 		Usuario usuarioRegistro = new Usuario("UsuarioRegistro","apellido1","apellido1","UsuarioRegistro@gmail.com","password1",telefonos1,false,fechaAlta,organizacionRegistro);
-		
+
 		
 		
 		//T1.Registrar organizacion
