@@ -88,7 +88,7 @@ public class TestUsuario {
 		assertEquals(organizacionRegistro, (Organizacion) organizacionService.buscarOrganizacionPorId(organizacionRegistro.getIdOrganizacion()));
 		
 		// T2.Registar usuario
-		usuarioService.RegistrarUsuario(usuarioRegistro);
+		usuarioService.registrarUsuario(usuarioRegistro);
 		assertNotNull(usuarioRegistro.getIdUsuario());
     	assertEquals(usuarioRegistro, (Usuario) usuarioService.buscarUsuarioPorId(usuarioRegistro.getIdUsuario()));
 
@@ -105,12 +105,12 @@ public class TestUsuario {
     			
     	
 		Boolean duplicado=false;
-		try {usuarioService.RegistrarUsuario(usuarioRegistroDuplicado);} 
+		try {usuarioService.registrarUsuario(usuarioRegistroDuplicado);} 
 			catch (DataIntegrityViolationException e) {duplicado=true;}
 		assertFalse(duplicado);
 
 		duplicado=false;
-		try {usuarioService.RegistrarUsuario(usuarioRegistroDuplicado);} 
+		try {usuarioService.registrarUsuario(usuarioRegistroDuplicado);} 
 			catch (DataIntegrityViolationException e) {duplicado=true;}
 		assertTrue(duplicado);
 		
@@ -121,7 +121,7 @@ public class TestUsuario {
 		assertEquals(usuarioRegistroDuplicado.getEmail(),"miNuevoMail@gmail.com");
 		
 		// T4. Borrar Usuario
-		usuarioService.eliminarUsuario(usuarioRegistro);
+		usuarioService.eliminarUsuario(usuarioRegistro.getIdUsuario());
 		assertNull(usuarioService.buscarUsuarioPorId(usuarioRegistro.getIdUsuario()));
 		
 		
@@ -130,17 +130,17 @@ public class TestUsuario {
 		
 		// intentamos borrar una organizacion con usuarios
 		 duplicado=false;
-		 try {organizacionService.borrarOrganizacion(organizacionRegistro);} 
+		 try {organizacionService.borrarOrganizacion(organizacionRegistro.getIdOrganizacion());} 
 		      catch (DataIntegrityViolationException e) {duplicado=true;}
 			  assertTrue(duplicado);
 			  
 		//Borramos el usuario
-		usuarioService.eliminarUsuario(usuarioRegistroDuplicado);
+		usuarioService.eliminarUsuario(usuarioRegistroDuplicado.getIdUsuario());
 		assertNull(usuarioService.buscarUsuarioPorId(usuarioRegistroDuplicado.getIdUsuario()));
 		
 		//Borramos la organizacion
 		duplicado=false;
-		try {organizacionService.borrarOrganizacion(organizacionRegistro);} 
+		try {organizacionService.borrarOrganizacion(organizacionRegistro.getIdOrganizacion());} 
 			 catch (DataIntegrityViolationException e) {duplicado=true;}
 				assertFalse(duplicado);
 

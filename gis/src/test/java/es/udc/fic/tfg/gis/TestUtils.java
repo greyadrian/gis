@@ -133,12 +133,12 @@ public class TestUtils {
 		organizacionService.registrarOrganizacion(organizacion3);
 		
 		//Insertamos los usuarios
-		usuarioService.RegistrarUsuario(usuario1);
-		usuarioService.RegistrarUsuario(usuario2);
-		usuarioService.RegistrarUsuario(usuario3);
-		usuarioService.RegistrarUsuario(usuario4);
-		usuarioService.RegistrarUsuario(usuario5);
-		usuarioService.RegistrarUsuario(usuario6);
+		usuarioService.registrarUsuario(usuario1);
+		usuarioService.registrarUsuario(usuario2);
+		usuarioService.registrarUsuario(usuario3);
+		usuarioService.registrarUsuario(usuario4);
+		usuarioService.registrarUsuario(usuario5);
+		usuarioService.registrarUsuario(usuario6);
 		
 
 
@@ -147,19 +147,19 @@ public class TestUtils {
 	public void eliminaSetDatosProba() {
 
 		//Borramos usuarios
-		usuarioService.eliminarUsuario(usuario1);
-		usuarioService.eliminarUsuario(usuario2);
-		usuarioService.eliminarUsuario(usuario3);
-		usuarioService.eliminarUsuario(usuario4);
-		usuarioService.eliminarUsuario(usuario5);
-		usuarioService.eliminarUsuario(usuario6);
+		usuarioService.eliminarUsuario(usuario1.getIdUsuario());
+		usuarioService.eliminarUsuario(usuario2.getIdUsuario());
+		usuarioService.eliminarUsuario(usuario3.getIdUsuario());
+		usuarioService.eliminarUsuario(usuario4.getIdUsuario());
+		usuarioService.eliminarUsuario(usuario5.getIdUsuario());
+		usuarioService.eliminarUsuario(usuario6.getIdUsuario());
 		
 
 		// Borramos organizaciones
 		
-		organizacionService.borrarOrganizacion(organizacion1);
-		organizacionService.borrarOrganizacion(organizacion2);
-		organizacionService.borrarOrganizacion(organizacion3);
+		organizacionService.borrarOrganizacion(organizacion1.getIdOrganizacion());
+		organizacionService.borrarOrganizacion(organizacion2.getIdOrganizacion());
+		organizacionService.borrarOrganizacion(organizacion3.getIdOrganizacion());
 
 
 	}

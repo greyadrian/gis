@@ -74,7 +74,7 @@ public class OrganizacionServiceImpl implements OrganizacionService {
 		
 	}
 
-
+	@Transactional(value = "meuTransactionManager")
 	public Organizacion buscarOrganizacionPorId(Long idOrganizacion) {
 		 return	organizacionDAO.buscarPorId(idOrganizacion);
 		

@@ -25,7 +25,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	static Logger log = Logger.getLogger("Gis");
 	
 	@Transactional(value = "meuTransactionManager")
-	public void RegistrarUsuario(Usuario miUsuario) {
+	public void registrarUsuario(Usuario miUsuario) {
 		try{
 			if(usuarioDAO.buscarPorEmail(miUsuario.getEmail())!=null){
 				throw new DataIntegrityViolationException ("El correo: " + miUsuario.getEmail() +" ya existe.");
@@ -41,7 +41,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 		
 	}
-
+	@Transactional(value = "meuTransactionManager")
 	public void actualizarUsuario(Usuario miUsuario) {
 		try{
 			usuarioDAO.modificar(miUsuario);
@@ -52,10 +52,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 		}
 		
 	}
-
-	public void eliminarUsuario(Usuario miUsuario) {
+	@Transactional(value = "meuTransactionManager")
+	public void eliminarUsuario(Long idUsuario) {
 		try{	
-			usuarioDAO.borrar(miUsuario);
+			usuarioDAO.borrar(idUsuario);
 			log.info("Usuario borrado");
 		}catch(DataAccessException e){
 			log.error("Fallo durante el borrado del usuario");
@@ -65,15 +65,19 @@ public class UsuarioServiceImpl implements UsuarioService {
 		
 	
 
-	public Usuario autenticarUsuario(String login, String password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	public Usuario buscarUsuarioPorId(Long id) {
 		 return	usuarioDAO.buscarPorId(id);
 	
 	}
+	@Override
+	public Usuario autenticarUsuario(String login, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 	
 	
 
