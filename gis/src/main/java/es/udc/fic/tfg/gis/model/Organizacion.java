@@ -122,7 +122,7 @@ public class Organizacion {
 
 	@OneToMany(fetch = FetchType.LAZY)
 	@JoinColumn(name="ID_ORGANIZACION")
-	//@Column(insertable=false, updatable=false)
+	
 	public Set<Usuario> getUsuarios() {
 		return usuarios;
 	}
@@ -142,10 +142,14 @@ public class Organizacion {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((descripcion == null) ? 0 : descripcion.hashCode());
+		result = prime * result + ((direccion == null) ? 0 : direccion.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((idOrganizacion == null) ? 0 : idOrganizacion.hashCode());
 		result = prime * result + ((nif == null) ? 0 : nif.hashCode());
 		result = prime * result + ((nombre == null) ? 0 : nombre.hashCode());
+		result = prime * result + ((telefonos == null) ? 0 : telefonos.hashCode());
+		result = prime * result + ((usuarios == null) ? 0 : usuarios.hashCode());
 		return result;
 	}
 
@@ -158,6 +162,16 @@ public class Organizacion {
 		if (getClass() != obj.getClass())
 			return false;
 		Organizacion other = (Organizacion) obj;
+		if (descripcion == null) {
+			if (other.descripcion != null)
+				return false;
+		} else if (!descripcion.equals(other.descripcion))
+			return false;
+		if (direccion == null) {
+			if (other.direccion != null)
+				return false;
+		} else if (!direccion.equals(other.direccion))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -178,14 +192,31 @@ public class Organizacion {
 				return false;
 		} else if (!nombre.equals(other.nombre))
 			return false;
+		if (telefonos == null) {
+			if (other.telefonos != null)
+				return false;
+		} else if (!telefonos.equals(other.telefonos))
+			return false;
+		if (usuarios == null) {
+			if (other.usuarios != null)
+				return false;
+		} else if (!usuarios.equals(other.usuarios))
+			return false;
 		return true;
 	}
 
 	
 
 	
+
+	
+}
+
+	
+
+	
 	
 	
 	
 
-}
+

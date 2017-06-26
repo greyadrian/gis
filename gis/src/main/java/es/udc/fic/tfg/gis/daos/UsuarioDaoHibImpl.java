@@ -29,8 +29,8 @@ public class UsuarioDaoHibImpl implements UsuarioDAO {
 		return idUsuario;
 	}
 
-	public void borrar(Usuario miUsuario) {
-		sessionfactory.getCurrentSession().delete(miUsuario);
+	public void borrar(Long idUsuario) {
+		sessionfactory.getCurrentSession().delete(idUsuario);
 		
 	}
 

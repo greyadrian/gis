@@ -7,9 +7,9 @@ import es.udc.fic.tfg.gis.model.Usuario;
 
 public interface OrganizacionDAO {
 	Long crear(Organizacion miOrganizacion);
-	void borrar(Organizacion miOrganizacion);
+	void borrar(Long idOrganizacion);
 	void modificar(Organizacion miOrganizacion);
 	Organizacion buscarPorId(Long Id);
 	Organizacion buscarPorNif(String nif);
-	List<Usuario> buscarUsuariosOrganizacion(Organizacion miOrganizacion); 
+	List<Usuario> buscarUsuariosOrganizacion(Long  idOrganizacion); 
 }

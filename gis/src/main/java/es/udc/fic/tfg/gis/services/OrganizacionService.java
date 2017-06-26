@@ -3,10 +3,10 @@ import es.udc.fic.tfg.gis.model.*;
 
 public interface OrganizacionService {
 	
-	void registrarOrganizacion (Organizacion miOrganizacion);
+	Long registrarOrganizacion (Organizacion miOrganizacion);
 	void actualizarOrganizacion (Organizacion miOrganizacion);
-	void borrarOrganizacion (Organizacion miOrganizacion);
-	Organizacion buscarOrganizacionPorId (Long idOrganiazcion);
+	void borrarOrganizacion (Long idOrganizacion);
+	Organizacion buscarOrganizacionPorId (Long idOrganizacion);
 
 
 

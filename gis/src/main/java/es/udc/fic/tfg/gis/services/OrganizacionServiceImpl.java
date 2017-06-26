@@ -28,13 +28,15 @@ public class OrganizacionServiceImpl implements OrganizacionService {
 	static Logger log = Logger.getLogger("Gis");
 	
 	@Transactional(value = "meuTransactionManager")
-	public void registrarOrganizacion(Organizacion miOrganizacion) {
-		try{System.out.println("2");
+	public Long registrarOrganizacion(Organizacion miOrganizacion) {
+		Long idOrganizacion;
+		try{
 			if(organizacionDAO.buscarPorNif(miOrganizacion.getNif())!=null){
 				throw new DataIntegrityViolationException ("Ya existe una empresa con el NIF: " + miOrganizacion.getNif());
 			}else{
-				organizacionDAO.crear(miOrganizacion);
+				idOrganizacion = organizacionDAO.crear(miOrganizacion);
 				log.info("Organizacion creada: " + miOrganizacion);	
+				return idOrganizacion;
 			}
 		}catch (DataAccessException e){
 			log.error("Fallo durante la creación de la Organizacion: " + miOrganizacion);
@@ -56,17 +58,17 @@ public class OrganizacionServiceImpl implements OrganizacionService {
 	}
 
 	@Transactional(value = "meuTransactionManager")
-	public void borrarOrganizacion(Organizacion miOrganizacion) {
+	public void borrarOrganizacion(Long idOrganizacion) {
 		try{
-			List<Usuario> usuarios = (List<Usuario>) organizacionDAO.buscarUsuariosOrganizacion(miOrganizacion);
+			List<Usuario> usuarios = (List<Usuario>) organizacionDAO.buscarUsuariosOrganizacion(idOrganizacion);
 			if(usuarios.isEmpty()){
-				organizacionDAO.borrar(miOrganizacion);
-				log.info("Curso " + miOrganizacion.getNombre() + "ha sido borrada");
+				organizacionDAO.borrar(idOrganizacion);
+				log.info("Curso " + idOrganizacion + "ha sido borrada");
 			}else{
 				throw new DataIntegrityViolationException ("No se puede eliminar una organizacion con usuarios");
 			}
 		}catch(DataAccessException e){
-			log.error("Error al borrar la organizacion: "+ miOrganizacion.getNombre());
+			log.error("Error al borrar la organizacion: "+ idOrganizacion);
 			throw e;
 		}
 		
@@ -77,5 +79,7 @@ public class OrganizacionServiceImpl implements OrganizacionService {
 		 return	organizacionDAO.buscarPorId(idOrganizacion);
 		
 	}
+
+	
 
 }

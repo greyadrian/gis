@@ -29,8 +29,8 @@ public class OrganizacionDAOHibImpl implements OrganizacionDAO {
 		return idOrganizacion;
 	}
 
-	public void borrar(Organizacion miOrganizacion) {
-		sessionfactory.getCurrentSession().delete(miOrganizacion);
+	public void borrar(Long idOrganizacion) {
+		sessionfactory.getCurrentSession().delete(idOrganizacion);
 		
 	}
 
@@ -55,12 +55,14 @@ public class OrganizacionDAOHibImpl implements OrganizacionDAO {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Usuario> buscarUsuariosOrganizacion(Organizacion miOrganizacion) {
+	public List<Usuario> buscarUsuariosOrganizacion(Long idOrganizacion) {
 		Query q = sessionfactory.getCurrentSession().createQuery("from Usuario where id_organizacion = :id_organizacion");
-		  q.setParameter("id_organizacion",miOrganizacion.getIdOrganizacion());
+		  q.setParameter("id_organizacion",idOrganizacion);
 		  
 		  return (List<Usuario>) q.list();
 
 	}
+
+	
 
 }
